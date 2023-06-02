@@ -1,6 +1,6 @@
 import { Table } from "sst/node/table";
-import handler from "@venue-vista/core/handler";
-import dynamoDb from "@venue-vista/core/dynamodb";
+import handler from "../../../core/src/handler";
+import dynamoDb from "../../../core/src/dynamodb";
 
 export const main = handler(async () => {
   const userId = event.requestContext.authorizer.iam.cognitoIdentity.identityId;

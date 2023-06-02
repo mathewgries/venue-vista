@@ -1,7 +1,7 @@
 import { Table } from "sst/node/table";
 import * as uuid from "uuid";
-import handler from "@venue-vista/core/handler";
-import dynamoDb from "@venue-vista/core/dynamodb";
+import handler from "../../../core/src/handler";
+import dynamoDb from "../../../core/src/dynamodb";
 
 export const main = handler(async (event) => {
   const data = JSON.parse(event.body);
