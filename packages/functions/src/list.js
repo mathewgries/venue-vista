@@ -3,6 +3,8 @@ import handler from "@venue-vista/core/handler";
 import dynamoDb from "@venue-vista/core/dynamodb";
 
 export const main = handler(async () => {
+  const userId = event.requestContext.authorizer.iam.cognitoIdentity.identityId;
+
   const params = {
     TableName: Table.Users.tableName,
     // 'KeyConditionExpression' defines the condition for the query
@@ -12,7 +14,7 @@ export const main = handler(async () => {
     // 'ExpressionAttributeValues' defines the value in the condition
     // - ':userId': defines 'userId' to be the id of the author
     ExpressionAttributeValues: {
-      ":PK": "123",
+      ":PK": userId,
     },
   };
 
