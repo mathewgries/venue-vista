@@ -1,6 +1,6 @@
 import { Table } from "sst/node/table";
-import handler from "../../../core/src/handler";
-import dynamoDb from "../../../core/src/dynamodb";
+import handler from "@venue-vista/core/src/handler";
+import dynamoDb from "@venue-vista/core/src/dynamodb";
 
 export const main = handler(async (event) => {
   const data = JSON.parse(event.body);
@@ -8,21 +8,30 @@ export const main = handler(async (event) => {
 
   const params = {
     TableName: Table.Users.tableName,
-    // 'Key' defines the partition key and sort key of the item to be updated
     Key: {
-      PK: userId, // The id of the author
-      SK: event.pathParameters.id, // The id of the note from the path
+      PK: `USER#${userId}`,
+      SK: `USER#${userId}#META`,
     },
-    // 'UpdateExpression' defines the attributes to be updated
-    // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET content = :content, attachment = :attachment",
+    UpdateExpression: `SET 
+      UserName = :UserName,
+      Biography = :Biography,
+      Address = :Address,
+      DateOfBirth = :DateOfBirth,
+      ContactInfo = :ContactInfo,
+      SiteLinks = :SiteLinks,
+      Profiles = :Profiles,
+      ModifyDate = :ModifyDate
+      `,
     ExpressionAttributeValues: {
-      ":attachment": data.attachment || null,
-      ":content": data.content || null,
+      ":UserName": data.UserName,
+      ":Biography": data.Biography,
+      ":Address": data.Address,
+      ":DateOfBirth": data.DateOfBirth,
+      ":ContactInfo": data.ContactInfo,
+      ":SiteLinks": data.SiteLinks,
+      ":Profiles": data.Profiles,
+      ":ModifyDate": Date.now()
     },
-    // 'ReturnValues' specifies if and how to return the item's attributes,
-    // where ALL_NEW returns all attributes of the item after the update; you
-    // can inspect 'result' below to see how it works with different settings
     ReturnValues: "ALL_NEW",
   };
 

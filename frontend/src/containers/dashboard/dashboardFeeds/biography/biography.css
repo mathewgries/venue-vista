@@ -1,0 +1,154 @@
+@media (max-width: 480px) {
+    .bio-feed-container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .bio-feed-container h6,
+    .bio-feed-container p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .bio-feed-banner-container {
+        background-color: orange;
+        height: 150px;
+    }
+
+    .bio-feed-banner {
+        position: relative;
+        height: 150px;
+    }
+
+    .bio-feed-profile-img-container {
+        background-color: lightblue;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        width: 90px;
+        height: 120px;
+    }
+
+    .bio-feed-banner-img-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* DETAILS */
+    .bio-feed-details-item {
+        padding: 15px 10px;
+        border-bottom: 1px solid lightgrey;
+    }
+
+    .bio-feed-details-item h6 {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .bio-feed-details-item p {
+        margin: 0;
+    }
+
+    .bio-feed-rating {
+        display: flex;
+        align-items: center;
+    }
+
+    .bio-feed-rating>h6 {
+        margin-right: 5px;
+    }
+
+    .bio-feed-bio {
+        position: relative;
+    }
+
+    .bio-feed-bio {
+        position: relative;
+    }
+
+    .bio-content {
+        max-height: calc(1.2em * 9);
+        overflow: hidden;
+        margin-bottom: 1em;
+        position: relative;
+    }
+
+    .see-more {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        color: blue;
+        cursor: pointer;
+        margin-top: 0.5em;
+        white-space: nowrap;
+    }
+
+    .see-more::before {
+        content: "...";
+    }
+
+    .bio-feed-full-bio {
+        position: relative;
+        padding: 10px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        text-align: center;
+        border: 1px solid #000;
+        ;
+        border-radius: 50%;
+    }
+
+    .close-button>button {
+        font-size: 18px;
+        background: none;
+        color: #000;
+        cursor: pointer;
+    }
+
+    .full-bio-text {
+        position: relative;
+        top: 30px;
+    }
+
+    .bio-feed-edit {
+        position: relative;
+    }
+
+    .edit-button-group {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .bio-feed-form-container {
+        margin-top: 45px;
+        padding: 5px;
+        overflow-y: auto;
+    }
+
+    .edit-save-button {
+        margin: 0;
+        padding: 0;
+    }
+
+    div[data-lastpass-icon-root] {
+        display: none
+    }
+}

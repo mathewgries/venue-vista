@@ -1,0 +1,13 @@
+@media (max-width: 480px) {
+    .top-navbar {
+        display: flex;
+        height: 6vh;
+        justify-content: space-between;
+        
+    }
+
+    .top-navbar div {
+        height: 6vh;
+        align-content: center;
+    }
+}
