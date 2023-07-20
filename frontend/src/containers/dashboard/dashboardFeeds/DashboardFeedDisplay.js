@@ -1,5 +1,5 @@
 import React from 'react'
-import BioFeed from './biography/BioFeed'
+import BioFeed from './biography/feed/BioFeed'
 import PictureGalleryFeed from './picture-gallery/PictureGalleryFeed'
 import PostsFeed from './posts/PostsFeed'
 import EventsFeed from './events/EventsFeed'

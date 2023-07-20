@@ -1,0 +1,74 @@
+@media (max-width: 480px) {
+    .bio-feed-banner-container {
+        background-color: orange;
+        width: 100%;
+        height: 150px;
+    }
+
+    .bio-feed-banner {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .bio-feed-banner-img-container {
+        position: absolute;
+        background-color: blue;
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .banner-img-upload-overlay {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+    }
+
+    .bio-feed-profile-img-container {
+        background-color: lightblue;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        width: 90px;
+        height: 120px;
+        z-index: 1;
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-img-upload-overlay {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        bottom: -7px;
+        right: -7px;
+    }
+
+    .upload-button {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #007bff;
+        color: #fff;
+        border: 2px solid whitesmoke;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}

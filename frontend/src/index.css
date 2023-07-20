@@ -41,10 +41,10 @@ input[type="file"] {
   }
 
   .nav-container {
-    height: 6vh;
+    height: 4vh;
   }
 
   .main-content-container {
-    height: 94vh;
+    height: 96vh;
   }
 }

@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const ContactInfo = ({ contact_info }) => {
+export const ContactInfo = ({ contactInfo }) => {
     return (
         <div className='bio-feed-details-item'>
             <h6>Contact Info:</h6>
             {
-                contact_info.map((contact, index) => (
+                contactInfo.map((contact, index) => (
                     <div className='bio-feed-contact-info' key={index}>
-                        <p>{`${contact.Type === 'EmailAddress' ? 'Email: ' : 'Phone: '} ${contact.Value}`}</p>
+                        <p>{`${contact.type === 'emailAddress' ? 'Email: ' : 'Phone: '} ${contact.value}`}</p>
                     </div>
                 ))}
         </div>

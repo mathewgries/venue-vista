@@ -1,7 +1,6 @@
 import React from 'react'
 
-export const ProfileBiography = ({ biography, togglePopup }) => {
-
+export const ProfileBiography = ({ biography, toggleBioPopup }) => {
     return (
         <div className='bio-feed-bio bio-feed-details-item'>
             <h6>Biography:</h6>
@@ -10,7 +9,7 @@ export const ProfileBiography = ({ biography, togglePopup }) => {
                     {biography}
                 </p>
             </div>
-            <button className="see-more" onClick={togglePopup}>See More</button>
+            <button className="see-more" onClick={toggleBioPopup}>See More</button>
         </div>
     )
 }

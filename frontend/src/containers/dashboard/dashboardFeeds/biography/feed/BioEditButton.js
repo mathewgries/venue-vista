@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const BioEditButton = (props) => {
-    const {toggleEdit} = props
+    const { toggleEdit } = props
 
     return (
         <div className='bio-feed-details-item'>

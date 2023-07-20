@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Auth, API } from "aws-amplify";
+import { Auth } from "aws-amplify";
+import { useDispatch } from 'react-redux'
+import { createUser } from "../../redux/slices/userSlice";
 import Form from "react-bootstrap/Form";
 import { useNavigate, useLocation } from "react-router-dom";
 import LoaderButton from "../../components/LoaderButton";
@@ -10,6 +12,7 @@ import "./authentication.css";
 
 export default function ConfirmSignup(props) {
     const location = useLocation()
+    const dispatch = useDispatch()
 
     const [fields, handleFieldChange] = useFormFields({
         username: location.state.username,
@@ -36,7 +39,11 @@ export default function ConfirmSignup(props) {
         try {
             await Auth.confirmSignUp(fields.username, fields.confirmationCode);
             await Auth.signIn(fields.username, fields.password);
-            await createUserMeta(fields.username);
+            const userMetaData = {
+                emailAddress: fields.username,
+                firstName: fields.username
+            };
+            await dispatch(createUser(userMetaData)).unwrap()
             userHasAuthenticated(true);
             nav("/dashboard");
         } catch (error) {
@@ -45,23 +52,8 @@ export default function ConfirmSignup(props) {
         }
     }
 
-    async function createUserMeta(username) {
-        try {
-            const userMetaData = {
-                EmailAddress: username,
-                FirstName: username
-            };
-
-            const response = await API.post('venue-vista', '/users', {
-                body: userMetaData
-            });
-        } catch (error) {
-            onError(error);
-        }
-    }
-
     if (isLoading) {
-        return <div>Loading...</div>; // Render a loading state
+        return <div>Loading...</div>;
     }
 
     return (

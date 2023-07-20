@@ -1,4 +1,5 @@
 import { Table } from "sst/node/table";
+import * as uuid from "uuid";
 import handler from "@venue-vista/core/src/handler";
 import dynamoDb from "@venue-vista/core/src/dynamodb";
 
@@ -9,37 +10,94 @@ export const main = handler(async (event) => {
   const sk_type = "META"
   const date = Date.now()
 
-  const params = {
-    TableName: Table.Users.tableName,
-    Item: {
-      // The attributes of the item to be created
-      PK: `${pk_prefix}#${user_id}`,
-      SK: `${pk_prefix}#${user_id}#${sk_type}`,
-      EntityType: pk_prefix,
-      EntityId: user_id,
-      EmailAddress: data.EmailAddress,
-      UserName: {
-        FirstName: data.FirstName,
-        MiddleName: data.MiddleName || null,
-        LastName: data.LastName || null
-      },
-      Biography: data.Biography || null,
-      Address: {
-        Street: data.Street || null,
-        City: data.City || null,
-        State: data.State || null,
-        ZipCode: data.ZipCode || null
-      },
-      DateOfBirth: data.DateOfBirth || null,
-      ContactInfo: data.ContactInfo || [],
-      SiteLinks: data.SiteLinks || [],
-      Profiles: data.Profiles || [],
-      CreateDate: date,
-      ModifyDate: date
-    },
-  };
+  let items = [];
+  let album_id;
 
-  await dynamoDb.put(params);
+  items.push({
+    Put: {
+      TableName: Table.Users.tableName,
+      Item: {
+        PK: `${pk_prefix}#${user_id}`,
+        SK: `${pk_prefix}#${user_id}#${sk_type}`,
+        entityType: pk_prefix,
+        entityId: user_id,
+        emailAddress: data.emailAddress,
+        username: {
+          firstName: data.firstName,
+          middleName: data.middleName || null,
+          lastName: data.lastName || null
+        },
+        biography: data.biography || null,
+        address: {
+          street: data.street || null,
+          city: data.city || null,
+          state: data.state || null,
+          zipCode: data.zipCode || null
+        },
+        birthdate: data.birthdate || null,
+        contactInfo: data.contactInfo || [],
+        siteLinks: data.siteLinks || [],
+        profiles: data.profiles || [],
+        createDate: date,
+        modifyDate: date
+      },
+    }
+  })
 
-  return params.Item;
+  album_id = uuid.v1()
+  items.push({
+    Put: {
+      TableName: Table.Users.tableName,
+      Item: {
+        PK: `${pk_prefix}#${user_id}`,
+        SK: `PHOTO_ALBUM#${album_id}`,
+        entityType: "PHOTO_ALBUM",
+        entityId: album_id,
+        photoAlbumName: "Profile Photos",
+        imageKeys: [],
+        createDate: date,
+        modifyDate: date
+      },
+    }
+  })
+
+  album_id = uuid.v1()
+  items.push({
+    Put: {
+      TableName: Table.Users.tableName,
+      Item: {
+        PK: `${pk_prefix}#${user_id}`,
+        SK: `PHOTO_ALBUM#${album_id}`,
+        entityType: "PHOTO_ALBUM",
+        entityId: album_id,
+        photoAlbumName: "Banner Photos",
+        imageKeys: [],
+        createDate: date,
+        modifyDate: date
+      },
+    }
+  })
+
+  album_id = uuid.v1()
+  items.push({
+    Put: {
+      TableName: Table.Users.tableName,
+      Item: {
+        PK: `${pk_prefix}#${user_id}`,
+        SK: `PHOTO_ALBUM#${album_id}`,
+        entityType: "PHOTO_ALBUM",
+        entityId: album_id,
+        photoAlbumName: "Default",
+        imageKeys: [],
+        createDate: date,
+        modifyDate: date
+      },
+    }
+  })
+
+  const params = { TransactItems: items.slice(0) };
+
+  await dynamoDb.transactWrite(params);
+
+  return items;
 });

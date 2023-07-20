@@ -1,0 +1,46 @@
+@media (max-width: 480px) {
+    h3 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .bio-feed-edit-container {
+        position: relative;
+    }
+
+    .bio-feed-form-container {
+        padding: 7px;
+        overflow-y: auto;
+    }
+
+    div[data-lastpass-icon-root] {
+        display: none
+    }
+
+    .bio-edit-form-section {
+        margin-bottom: 10px;
+    }
+
+    .bio-edit-form-input {
+        margin-bottom: 5px;
+    }
+
+    .edit-button-group {
+        position: fixed;
+        top: 8vh;
+        left: 0;
+        width: 100%;
+        height: 4vh;
+        padding: 10px;
+        background-color: #F0F0F0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .edit-save-button {
+        margin: 0;
+        padding: 0;
+    }
+}

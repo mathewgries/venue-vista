@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Amplify } from "aws-amplify";
 import config from "./config";
 import './index.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import { store } from './redux/lib/store'
 import { Provider } from 'react-redux'
 import App from './App';

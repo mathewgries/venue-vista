@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUser, fetchUser } from '../../redux/slices/userSlice'
+import { fetchUser } from '../../redux/slices/userSlice'
 import { onError } from "../../lib/errorLib";
 import { DashboardInfoBar } from './dashboardInfoBar/DashboardInfoBar'
 import { DashboardFeedSelector } from './dashboardFeedSelector/DashboardFeedSelector'
@@ -10,7 +10,6 @@ import "./dashboard.css";
 export default function Dashboard() {
   const dispatch = useDispatch()
   const status = useSelector((state) => state.user.status);
-  const profile = useSelector(selectUser)
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFeed, setSelectedFeed] = useState('feed_1')
 
@@ -20,7 +19,7 @@ export default function Dashboard() {
     } else if (status === "success") {
       setIsLoading(false)
     }
-  }, [status, isLoading, profile]);
+  }, [status, isLoading]);
 
   async function loadUser() {
     setIsLoading(true)
@@ -45,7 +44,7 @@ export default function Dashboard() {
     <div className="dashboard">
 
       <div className='dashboard-info-bar-container'>
-        <DashboardInfoBar profile={profile} />
+        <DashboardInfoBar />
       </div>
 
       <div className='dashboard-feed-selector-container'>
@@ -55,7 +54,6 @@ export default function Dashboard() {
       <div className='dashboard-feed-display-container'>
         <DashboardFeedDisplay
           selectedFeed={selectedFeed}
-          profile={profile}
           isLoading={isLoading}
         />
       </div>

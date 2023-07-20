@@ -2,21 +2,17 @@ import React from 'react'
 import './inputFields.css'
 
 export const TextInput = (props) => {
-    const {
-        field_label,
-        field_name,
-        field_value,
-        handleOnChange
-    } = props
+    const { fieldLabel, fieldName, fieldValue, handleOnChange, placeholder } = props
 
     return (
         <div className='form-group'>
-            {field_label && <label>{field_label}</label>}
+            {fieldLabel && <label>{fieldLabel}</label>}
             <input
                 className='custom-input text-input-field'
-                name={field_name ?? ''}
-                value={field_value ?? ''}
+                name={fieldName ?? ''}
+                value={fieldValue ?? ''}
                 onChange={(e) => handleOnChange(e)}
+                placeholder={placeholder ?? ''}
             />
         </div>
     )

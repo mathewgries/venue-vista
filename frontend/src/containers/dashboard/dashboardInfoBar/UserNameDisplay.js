@@ -1,13 +1,13 @@
 import React from 'react'
 
-export const UserNameDisplay = (props) => {
-    const {FirstName, MiddleName, LastName} = props.username
+export const UserNameDisplay = ({username}) => {
+    const {firstName, middleName, lastName} = username
 
     return (
         <div className='username-display'>
-            <p>{FirstName}</p>
-            <p>{MiddleName ?? ''}</p>
-            <p>{LastName ?? ''}</p>
+            <p>{firstName}</p>
+            <p>{middleName ?? ''}</p>
+            <p>{lastName ?? ''}</p>
         </div>
     )
 }

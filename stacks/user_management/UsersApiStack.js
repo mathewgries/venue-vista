@@ -18,6 +18,10 @@ export function UsersApiStack({ stack, app }) {
       "GET /users": "packages/functions/src/user_management/list.main",
       "PUT /users/{id}": "packages/functions/src/user_management/update.main",
       "DELETE /users/{id}": "packages/functions/src/user_management/delete.main",
+
+      "POST /photoAlbums": "packages/functions/src/images/create.main",
+      "PUT /photoAlbums/{id}": "packages/functions/src/images/update.main",
+      // "DELETE /photoAlbums/{id}": "packages/functions/src/images/delete.main",
     },
   });
 

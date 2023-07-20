@@ -1,13 +1,13 @@
-.custom-input  {
-    border: 1px solid lightgray;
-}
-
-.text-input-field {
-
-}
-
 @media (max-width: 480px) {
-    .custom-input  {
-        width: 100%;
+    .custom-input {
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    @media (max-width: 480px) {
+        .custom-input {
+            width: 100%;
+        }
     }
 }

@@ -2,23 +2,23 @@ import React from 'react'
 import './inputFields.css'
 
 export const TextAreaInput = (props) => {
-    const { 
-        field_label, 
-        field_name, 
-        field_value,
+    const {
+        fieldLabel,
+        fieldName,
+        fieldValue,
         rows,
-        handleOnChange 
+        handleOnChange
     } = props
 
     return (
         <div className='form-group'>
-            <label>{field_label}</label>
+            <label>{fieldLabel}</label>
             <textarea
+                className='custom-input text-input-field'
                 type='text'
                 rows={rows}
-                className='custom-input text-input-field'
-                name={field_name}
-                value={field_value ?? ''}
+                name={fieldName}
+                value={fieldValue ?? ''}
                 onChange={(e) => handleOnChange(e)}
             />
         </div>

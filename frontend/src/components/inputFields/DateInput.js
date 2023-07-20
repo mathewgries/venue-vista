@@ -3,20 +3,20 @@ import './inputFields.css'
 
 export const DateInput = (props) => {
     const { 
-        field_label, 
-        field_name, 
-        field_value, 
+        fieldLabel, 
+        fieldName, 
+        fieldValue, 
         handleOnChange 
     } = props
 
     return (
         <div className='form-group'>
-            <label>{field_label}</label>
+            <label>{fieldLabel}</label>
             <input
                 type='date'
                 className='custom-input text-input-field'
-                name={field_name}
-                value={field_value ?? ''}
+                name={fieldName}
+                value={fieldValue ?? ''}
                 onChange={(e) => handleOnChange(e)}
             />
         </div>

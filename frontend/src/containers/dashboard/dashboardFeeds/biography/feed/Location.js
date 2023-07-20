@@ -4,7 +4,7 @@ export const Location = ({ address }) => {
     return (
         <div className='bio-feed-loction bio-feed-details-item'>
             <h6>Location:</h6>
-            <p>{address.City}, {address.State}</p>
+            <p>{address.city}, {address.state}</p>
         </div>
     )
 }

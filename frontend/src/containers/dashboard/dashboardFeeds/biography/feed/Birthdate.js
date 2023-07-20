@@ -1,10 +1,10 @@
 import React from 'react'
 
-export const DateOfBirth = ({ date_of_birth }) => {
+export const Birthdate = ({ birthdate }) => {
     return (
         <div className='bio-feed-date-of-birth bio-feed-details-item'>
-            <h6>Date of Birth:</h6>
-            <p>{date_of_birth}</p>
+            <h6>Birthdate:</h6>
+            <p>{birthdate}</p>
         </div>
     )
 

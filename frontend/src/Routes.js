@@ -6,7 +6,6 @@ import ConfirmSignup from "./containers/authentication/ConfirmSignup";
 import ResetPassword from "./containers/authentication/ResetPassword"
 
 import Dashboard from "./containers/dashboard/Dashboard"
-import BioFeed from "./containers/dashboard/dashboardFeeds/biography/BioFeed";
 
 import NotFound from "./containers/app/NotFound";
 
@@ -14,7 +13,6 @@ export default function Links() {
     return (
         <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/dashboard/:id/bio" element={<BioFeed />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/confirm-signup" element={<ConfirmSignup />} />

@@ -24,7 +24,8 @@ export const TopNavbar = (props) => {
       </div>
 
       <div className="justify-content-end">
-        <div activeKey={window.location.pathname}>
+        {/* <div activeKey={window.location.pathname}> */}
+        <div>
           {isAuthenticated ? (
             <button className='btn-link' onClick={handleLogout}>Logout</button>
           ) : (
