@@ -1,5 +1,6 @@
 @media (max-width: 480px) {
     .bio-feed-container {
+        background-color: whitesmoke;
         position: relative;
         z-index: 1;
         width: 100%;
