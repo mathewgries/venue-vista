@@ -1,5 +1,6 @@
 @media (max-width: 480px) {
     .top-navbar {
+        background-color: whitesmoke;
         display: flex;
         height: 4vh;
         justify-content: space-between;

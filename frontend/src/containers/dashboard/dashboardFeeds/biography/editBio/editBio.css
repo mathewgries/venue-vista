@@ -31,16 +31,19 @@
         left: 0;
         width: 100%;
         height: 4vh;
-        padding: 10px;
         background-color: #F0F0F0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         z-index: 1;
     }
 
-    .edit-save-button {
+    .bio-save-button,
+    .bio-edit-button {
         margin: 0;
         padding: 0;
+        height: 100%;
+        color: #007bff;
+        text-align: center;
     }
 }

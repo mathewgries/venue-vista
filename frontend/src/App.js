@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { AppContext } from "./lib/contextLib";
+import { LoadingContextProvider } from './lib/LoadingContext'
 import { onError } from "./lib/errorLib";
-import { useNavigate } from "react-router-dom";
 import { TopNavbar } from './containers/navbar/TopNavbar'
 import Routes from "./Routes";
 import "./App.css";
 
 function App() {
-  const nav = useNavigate();
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 
@@ -37,9 +36,11 @@ function App() {
           <TopNavbar isAuthenticated={isAuthenticated} userHasAuthenticated={userHasAuthenticated} />
         </div>
 
-        <div className="main-content-container">
+        <div className="content-container">
           <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-            <Routes />
+            <LoadingContextProvider>
+                <Routes />
+            </LoadingContextProvider>
           </AppContext.Provider>
         </div>
 

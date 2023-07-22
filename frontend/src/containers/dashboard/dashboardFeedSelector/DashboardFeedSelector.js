@@ -1,5 +1,4 @@
 import React from "react";
-import { selectUser } from "../../../redux/slices/userSlice";
 import './dashboardFeedSelector.css'
 
 export const DashboardFeedSelector = (props) => {

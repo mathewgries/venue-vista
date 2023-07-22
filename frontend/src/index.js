@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Amplify } from "aws-amplify";
-import config from "./config";
-import './index.css';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import { BrowserRouter as Router } from "react-router-dom";
 import { store } from './redux/lib/store'
 import { Provider } from 'react-redux'
+import config from "./config";
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css";
+import './index.css';
 
 Amplify.configure({
   Auth: {

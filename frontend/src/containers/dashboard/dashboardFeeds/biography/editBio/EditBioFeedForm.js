@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux'
+import { useLoadingContext } from '../../../../../lib/LoadingContext';
 import { updateUser } from '../../../../../redux/slices/userSlice'
 import { onError } from '../../../../../lib/errorLib'
 import { Form } from "react-bootstrap";
@@ -16,10 +18,11 @@ import { CreateNewSiteLinkButton } from './CreateNewSiteLinkButton';
 import { EditSiteLinks } from './EditSiteLinks';
 import './editBio.css'
 
-export const EditBioFeedForm = (props) => {
+export const EditBioFeedForm = ({profile, toggleEdit}) => {
+    const nav = useNavigate();
     const dispatch = useDispatch()
-    const { profile, toggleEdit } = props
-    const [isLoading, setIsLoading] = useState(false);
+    const {isLoading, setIsLoading} = useLoadingContext()
+    // const [isLoading, setIsLoading] = useState(false);
     const [fields, setFields] = useState({ ...profile });
 
     const [isCreateNewContact, setIsCreateNewContact] = useState(false)
@@ -141,6 +144,7 @@ export const EditBioFeedForm = (props) => {
         setIsLoading(true)
         try {
             await dispatch(updateUser(fields)).unwrap()
+            toggleEdit()
         } catch (e) {
             onError(e)
         }

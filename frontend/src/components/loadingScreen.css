@@ -1,0 +1,38 @@
+@media (max-width: 480px) {
+    .loading-screen-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Semi-transparent black background */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        /* Place the loading screen above other content */
+    }
+
+    .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        /* Light gray border */
+        border-top: 4px solid #fff;
+        /* White border on top to create spinner effect */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        /* Apply the rotation animation */
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

@@ -1,7 +1,9 @@
 body {
   margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
+  background-color: #353839;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -41,10 +43,12 @@ input[type="file"] {
   }
 
   .nav-container {
+    width: 100%;
     height: 4vh;
   }
 
-  .main-content-container {
+  .content-container {
+    width: 100%;
     height: 96vh;
   }
 }
